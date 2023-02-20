@@ -48,7 +48,7 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
     """
     today = date.today()
 
-    req_dst = '/var/task/app/module/backend/temp/{}/{}/{}/{}-{}.csv'.format(
+    req_dst = '../backend/temp/{}/{}/{}/{}-{}.csv'.format(
         forecast_type, parameter_type, city_name, parameter_type, '2023-02-20')
     
     print(os.path.dirname(os.path.abspath(__file__)))
