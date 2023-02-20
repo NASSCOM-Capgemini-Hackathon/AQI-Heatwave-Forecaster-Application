@@ -50,8 +50,6 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
 
     req_dst = '../backend/temp/{}/{}/{}/{}-{}.csv'.format(
         forecast_type, parameter_type, city_name, parameter_type, '2023-02-20')
-    
-    print(os.path.dirname(os.path.abspath(__file__)))
 
     if os.path.exists(req_dst):
         df = pd.read_csv(req_dst, header=0)
