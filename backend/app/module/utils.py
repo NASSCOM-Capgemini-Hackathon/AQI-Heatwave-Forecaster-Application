@@ -74,5 +74,5 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
             df = pd.read_csv(req_dst, header=0)
             return df
         except botocore.exceptions.ClientError as e:
-            print("+++",os.getenv('AWS_ACCESS_KEY_ID'),e)
+            print(os.getenv('AWS_ACCESS_KEY_ID'),e)
             return None
