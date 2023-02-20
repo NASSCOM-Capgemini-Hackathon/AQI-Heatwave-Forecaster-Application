@@ -28,7 +28,7 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
     filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
                                            parameter_type, city, parameter_type, '2023-02-20')
     df = get_xlsx_from_aws(filename, forecast_type, parameter_type, city)
-    if df.empty:
+    if df == None or df.empty:
         return ({"Error": "Data doesn't exists"}, 500)
     json_data = df.to_json(orient='records')
     return (json_data, 200)
@@ -74,4 +74,5 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
             df = pd.read_csv(req_dst, header=0)
             return df
         except botocore.exceptions.ClientError as e:
+            print(os.getenv('AWS_ACCESS_KEY_ID'),e)
             return None
