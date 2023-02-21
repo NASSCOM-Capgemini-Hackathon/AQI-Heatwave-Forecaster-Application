@@ -12,6 +12,7 @@
             "volumesFrom": []
         }
     ],
+    "executionRoleArn": "ecsTaskExecutionRole",
     "family": "flaskapplication",
     "networkMode": "awsvpc",
     "revision": 1,
