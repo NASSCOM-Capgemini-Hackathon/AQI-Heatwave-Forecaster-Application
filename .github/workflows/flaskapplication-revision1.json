@@ -1,4 +1,5 @@
 {
+    "taskDefinition":"yes",
     "taskDefinitionArn": "arn:aws:ecs:ap-south-1:230425533881:task-definition/flaskapplication:1",
     "containerDefinitions": [
         {
