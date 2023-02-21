@@ -26,9 +26,9 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
         return ({"Error": "Invalid City Input Given"}, 500)
 
     filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
-                                           parameter_type, city, parameter_type, '2023-02-20')
+                                           parameter_type, city, parameter_type, today)
     df = get_xlsx_from_aws(filename, forecast_type, parameter_type, city)
-    if df == None or df.empty:
+    if len(df) == 0:
         return ({"Error": "Data doesn't exists"}, 500)
     json_data = df.to_json(orient='records')
     return (json_data, 200)
@@ -49,17 +49,17 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
     today = date.today()
 
     req_dst = '../backend/temp/{}/{}/{}/{}-{}.csv'.format(
-        forecast_type, parameter_type, city_name, parameter_type, '2023-02-20')
+        forecast_type, parameter_type, city_name, parameter_type, today)
 
     if os.path.exists(req_dst):
         df = pd.read_csv(req_dst, header=0)
         return df
     else:
-        cli = boto3.client('s3', aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                           aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
-        
-        s3 = boto3.resource('s3', aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                           aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
+        cli = boto3.client('s3', aws_access_key_id='AKIAQOY2QI5NU7SFAHPH',
+                           aws_secret_access_key='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')
+
+        s3 = boto3.resource('s3', aws_access_key_id='AKIAQOY2QI5NU7SFAHPH',
+                            aws_secret_access_key='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')
 
         bucket_name = 'capegemini-hackathon'
 
@@ -67,12 +67,12 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
 
         try:
             s3.Object(bucket_name, filename).load()
-            print("here",req_dst)
+            print("here", req_dst)
 
             with open(req_dst, 'wb') as f:
                 cli.download_fileobj(bucket_name, filename, f)
             df = pd.read_csv(req_dst, header=0)
             return df
         except botocore.exceptions.ClientError as e:
-            print(os.getenv('AWS_ACCESS_KEY_ID'),e)
-            return None
+            print("no")
+            return pd.DataFrame()
