@@ -1,0 +1,41 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:230425533881:task-definition/flaskapplication:1",
+    "containerDefinitions": [
+        {
+            "name": "aqi-heatwave-forecaster",
+            "image": "devnasscom",
+            "cpu": 0,
+            "portMappings": [],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": []
+        }
+    ],
+    "family": "flaskapplication",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "registeredAt": "2023-02-21T18:43:00.851Z",
+    "registeredBy": "arn:aws:iam::230425533881:root",
+    "tags": []
+}
