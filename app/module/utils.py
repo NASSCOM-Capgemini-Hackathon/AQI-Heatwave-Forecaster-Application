@@ -48,7 +48,7 @@ def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
     """
     today = date.today()
 
-    req_dst = '../temp/{}/{}/{}/{}-{}.csv'.format(
+    req_dst = './temp/{}/{}/{}/{}-{}.csv'.format(
         forecast_type, parameter_type, city_name, parameter_type, today)
 
     if os.path.exists(req_dst):
