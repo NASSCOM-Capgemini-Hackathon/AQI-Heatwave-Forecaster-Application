@@ -1,12 +1,36 @@
 import pandas as pd
 import boto3
-from datetime import date
+import s3fs
+from datetime import date, timedelta
 import os
 import botocore
 from dotenv import load_dotenv
 
 load_dotenv('backend\.env')
 ALLOWED_CITIES = ['Warangal', 'Adilabad', 'Karimnagar', 'Khammam', 'Nizamabad']
+BUCKET_NAME = 'capegemini-hackathon'
+
+
+def prepare_history_data(city, forecast_type, parameter_type, filename):
+    global ALLOWED_CITIES
+    if city not in ALLOWED_CITIES:
+        return ({"Error": "Invalid City Input Given"}, 500)
+
+    filename = 'data/{}/{}/{}'.format(parameter_type,
+                                      forecast_type, filename)
+    df,msg = get_xlsx_from_aws(filename, city)
+    if len(df) == 0:
+        return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
+
+
+    if parameter_type == "weather":
+        df.drop(['District'], axis=1, inplace=True)
+        df.rename(columns={'Max Temp (°C)': 'Max Temp', 'Min Temp (°C)': 'Min Temp',
+                           'Max Humidity (%)': 'Max Humidity', 'Min Humidity (%)': 'Min Humidity',
+                           'Max Wind Speed (Kmph)': 'Max Wind Speed', 'Min Wind Speed (Kmph)': 'Min Wind Speed'}, inplace=True)
+
+    json_data = df.to_json(orient='records', date_format='iso')
+    return (json_data, 200)
 
 
 def prepare_data_for_api(city, forecast_type, parameter_type):
@@ -21,58 +45,66 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
         json of predictions
     """
     global ALLOWED_CITIES
-    today = date.today()
+    today = date.today() - timedelta(days=1)
     if city not in ALLOWED_CITIES:
         return ({"Error": "Invalid City Input Given"}, 500)
 
     filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
                                            parameter_type, city, parameter_type, today)
-    df = get_xlsx_from_aws(filename, forecast_type, parameter_type, city)
+    df,msg = get_csv_from_aws(filename)
     if len(df) == 0:
-        return ({"Error": "Data doesn't exists"}, 500)
+        return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
     json_data = df.to_json(orient='records')
     return (json_data, 200)
 
 
-def get_xlsx_from_aws(filename, forecast_type, parameter_type, city_name):
+def get_csv_from_aws(filename):
     """utils functions for API endpoint
 
     Args:
         filename (string)
-        forecast_type (monthly | daily)
-        parameter_type (aqi | weather)
-        city_name (string)
-
     Returns:
         pandas data frame
     """
-    today = date.today()
+    global BUCKET_NAME
+    fs = s3fs.S3FileSystem(key='AKIAQOY2QI5NU7SFAHPH',
+                           secret='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')
+    msg = ""
 
-    req_dst = './temp/{}/{}/{}/{}-{}.csv'.format(
-        forecast_type, parameter_type, city_name, parameter_type, today)
+    try:
+        with fs.open(f'{BUCKET_NAME}/{filename}') as f:
+            df = pd.read_csv(f)
 
-    if os.path.exists(req_dst):
-        df = pd.read_csv(req_dst, header=0)
-        return df
-    else:
-        cli = boto3.client('s3', aws_access_key_id='AKIAQOY2QI5NU7SFAHPH',
-                           aws_secret_access_key='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')
+    except Exception as e:
+        print("{}".format(e))
+        msg = e
+        df = pd.DataFrame()
 
-        s3 = boto3.resource('s3', aws_access_key_id='AKIAQOY2QI5NU7SFAHPH',
-                            aws_secret_access_key='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')
+    return df,msg
 
-        bucket_name = 'capegemini-hackathon'
 
-        print(filename)
+def get_xlsx_from_aws(filename, sheet_name):
+    """utils functions for API endpoint
 
-        try:
-            s3.Object(bucket_name, filename).load()
-            print("here", req_dst)
+    Args:
+        filename (string)
+    Returns:
+        pandas data frame
+    """
+    global BUCKET_NAME
+    fs = s3fs.S3FileSystem(key='AKIAQOY2QI5NU7SFAHPH',
+                           secret='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')
+    msg = ""
 
-            with open(req_dst, 'wb') as f:
-                cli.download_fileobj(bucket_name, filename, f)
-            df = pd.read_csv(req_dst, header=0)
-            return df
-        except botocore.exceptions.ClientError as e:
-            print("no")
-            return pd.DataFrame()
+
+    try:
+        with fs.open(f'{BUCKET_NAME}/{filename}') as f:
+            df = pd.read_excel(f, sheet_name=sheet_name)
+
+    except Exception as e:
+        print("{}".format(e))
+        msg = e
+        df = pd.DataFrame()
+
+    # print(df.tail())
+    return df,msg
