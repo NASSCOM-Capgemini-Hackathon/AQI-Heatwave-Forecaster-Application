@@ -1,9 +1,7 @@
 import pandas as pd
-import boto3
 import s3fs
-from datetime import date, timedelta
 import os
-import botocore
+from datetime import date, timedelta
 from dotenv import load_dotenv
 
 load_dotenv('backend\.env')
