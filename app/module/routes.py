@@ -46,8 +46,7 @@ def getHistoryMonthlyAQI():
     city = request.json.get('City')
     forecast_type = 'monthly'
     parameter_type = 'aqi'
-    filename = 'AAQ-AQI-interpolated.xlsx'
-    return make_response(prepare_history_data(city, forecast_type, parameter_type, filename))
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
 
 
 @app.route("/api/aqi/getHistoryDailyAQI", methods=['POST'])
@@ -55,8 +54,7 @@ def getHistoryDailyAQI():
     city = request.json.get('City')
     forecast_type = 'daily'
     parameter_type = 'aqi'
-    filename = 'AQI-daily.xlsx'
-    return make_response(prepare_history_data(city, forecast_type, parameter_type, filename))
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
 
 
 @app.route("/api/weather/getHistoryMonthlyWeather", methods=['POST'])
@@ -64,8 +62,7 @@ def getHistoryMonthlyWeather():
     city = request.json.get('City')
     forecast_type = 'monthly'
     parameter_type = 'weather'
-    filename = 'Weather Monthly.xlsx'
-    return make_response(prepare_history_data(city, forecast_type, parameter_type, filename))
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
 
 
 @app.route("/api/weather/getHistoryDailyWeather", methods=['POST'])
@@ -73,5 +70,4 @@ def getHistoryDailyWeather():
     city = request.json.get('City')
     forecast_type = 'daily'
     parameter_type = 'weather'
-    filename = 'Weather Daily.xlsx'
-    return make_response(prepare_history_data(city, forecast_type, parameter_type, filename))
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))

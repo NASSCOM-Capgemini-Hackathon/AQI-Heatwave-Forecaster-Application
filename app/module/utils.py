@@ -9,13 +9,13 @@ ALLOWED_CITIES = ['Warangal', 'Adilabad', 'Karimnagar', 'Khammam', 'Nizamabad']
 BUCKET_NAME = 'capegemini-hackathon'
 
 
-def prepare_history_data(city, forecast_type, parameter_type, filename):
+def prepare_history_data(city, forecast_type, parameter_type):
     global ALLOWED_CITIES
     if city not in ALLOWED_CITIES:
         return ({"Error": "Invalid City Input Given"}, 500)
 
-    filename = 'data/{}/{}/{}'.format(parameter_type,
-                                      forecast_type, filename)
+    filename = 'data/{}/{}/{}-{}.xlsx'.format(parameter_type,
+                                      forecast_type, parameter_type, forecast_type)
     print(filename)
     df,msg = get_xlsx_from_aws(filename, city)
     if len(df) == 0:
@@ -23,7 +23,6 @@ def prepare_history_data(city, forecast_type, parameter_type, filename):
 
 
     if parameter_type == "weather":
-        df.drop(['District'], axis=1, inplace=True)
         df.rename(columns={'Max Temp (°C)': 'Max Temp', 'Min Temp (°C)': 'Min Temp',
                            'Max Humidity (%)': 'Max Humidity', 'Min Humidity (%)': 'Min Humidity',
                            'Max Wind Speed (Kmph)': 'Max Wind Speed', 'Min Wind Speed (Kmph)': 'Min Wind Speed'}, inplace=True)
