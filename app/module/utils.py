@@ -1,7 +1,7 @@
 import pandas as pd
 import s3fs
 import os
-from datetime import date, timedelta
+from datetime import date, timedelta , datetime
 from dotenv import load_dotenv
 
 load_dotenv('backend\.env')
@@ -16,6 +16,7 @@ def prepare_history_data(city, forecast_type, parameter_type, filename):
 
     filename = 'data/{}/{}/{}'.format(parameter_type,
                                       forecast_type, filename)
+    print(filename)
     df,msg = get_xlsx_from_aws(filename, city)
     if len(df) == 0:
         return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
@@ -46,9 +47,15 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
     today = date.today() - timedelta(days=1)
     if city not in ALLOWED_CITIES:
         return ({"Error": "Invalid City Input Given"}, 500)
-
-    filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
+    
+    if forecast_type == "monthly":
+        filename = '{}/{}/{}/{}-{}-{}.csv'.format(forecast_type,
+                                           parameter_type, city, parameter_type, str(datetime.now().strftime('%B')) ,str(datetime.now().strftime('%Y')))
+    else:
+        filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
                                            parameter_type, city, parameter_type, today)
+    print(filename)
+
     df,msg = get_csv_from_aws(filename)
     if len(df) == 0:
         return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
