@@ -8,6 +8,68 @@ def index():
     data = {"text": "Hello World"}
     return (jsonify(data))
 
+@app.route("/api/aqi/MonthlyAQIPredictions/<city>", methods=['GET'])
+def MonthlyAQIPredictions(city):
+    city = city
+    forecast_type = 'monthly'
+    parameter_type = 'aqi'
+    return make_response(prepare_data_for_api(city, forecast_type, parameter_type))
+
+
+@app.route("/api/aqi/DailyAQIPredictions/<city>", methods=['GET'])
+def DailyAQIPredictions(city):
+    city = city
+    forecast_type = 'daily'
+    parameter_type = 'aqi'
+    return make_response(prepare_data_for_api(city, forecast_type, parameter_type))
+
+
+@app.route("/api/weather/MonthlyWeatherPredictions/<city>", methods=['GET'])
+def MonthlyWeatherPredictions(city):
+    city = city
+    forecast_type = 'monthly'
+    parameter_type = 'weather'
+    return make_response(prepare_data_for_api(city, forecast_type, parameter_type))
+
+
+@app.route("/api/weather/DailyWeatherPredictions/<city>", methods=['GET'])
+def DailyWeatherPredictions(city):
+    city = city
+    forecast_type = 'daily'
+    parameter_type = 'weather'
+    return make_response(prepare_data_for_api(city, forecast_type, parameter_type))
+
+
+@app.route("/api/aqi/HistoryMonthlyAQI/<city>", methods=['GET'])
+def HistoryMonthlyAQI(city):
+    city = city
+    forecast_type = 'monthly'
+    parameter_type = 'aqi'
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
+
+
+@app.route("/api/aqi/HistoryDailyAQI/<city>", methods=['GET'])
+def HistoryDailyAQI(city):
+    city = city
+    forecast_type = 'daily'
+    parameter_type = 'aqi'
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
+
+
+@app.route("/api/weather/HistoryMonthlyWeather/<city>", methods=['GET'])
+def HistoryMonthlyWeather(city):
+    city = city
+    forecast_type = 'monthly'
+    parameter_type = 'weather'
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
+
+
+@app.route("/api/weather/HistoryDailyWeather/<city>", methods=['GET'])
+def HistoryDailyWeather(city):
+    city = city
+    forecast_type = 'daily'
+    parameter_type = 'weather'
+    return make_response(prepare_history_data(city, forecast_type, parameter_type))
 
 @app.route("/api/aqi/getMonthlyAQIPredictions", methods=['POST'])
 def getMonthlyAQIPredictions():

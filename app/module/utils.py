@@ -43,7 +43,7 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
         json of predictions
     """
     global ALLOWED_CITIES
-    today = date.today() - timedelta(days=1)
+    today = date.today()
     if city not in ALLOWED_CITIES:
         return ({"Error": "Invalid City Input Given"}, 500)
     
