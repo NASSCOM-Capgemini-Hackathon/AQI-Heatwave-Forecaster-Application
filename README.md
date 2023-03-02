@@ -14,7 +14,8 @@ flask run
 
 ## Sample request to our flask application
 
-![Screen Recording - 3 March 2023](https://user-images.githubusercontent.com/62760269/222524456-9a208c74-9ea3-4db7-bd3b-117a3bbe451d.gif)
+![Screen Recording - 3 March 2023 (1)](https://user-images.githubusercontent.com/62760269/222525992-b5b129df-dcb3-4315-b7b7-17ef88bdb451.gif)
+
 
 
 
