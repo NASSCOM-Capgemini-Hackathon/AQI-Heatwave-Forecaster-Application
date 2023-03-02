@@ -377,7 +377,7 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [{"DATE":"2018-01-01T00:00:00.000Z","Max Temp":33.5,"Rain (mm)":0,"Min Temp":16.8,"Min Humidity":41.8,"Max
+      [{"DATE":"2018-01-01T00:00:00.000Z","Max Temp":33.5,"Rain (mm)":0,"Min Temp":16.8,"Min Humidity":41.8,"Max
       Humidity":88.1,"Min Wind Speed":2,"Max Wind Speed":19.7},{"DATE":"2018-01-02T00:00:00.000Z","Max Temp":33.2,"Rain
       (mm)":0,"Min Temp":16.9,"Min Humidity":38.8,"Max Humidity":85.0,"Min Wind Speed":3,"Max Wind
       Speed":17.6},{"DATE":"2018-01-03T00:00:00.000Z","Max Temp":32.7,"Rain (mm)":0,"Min Temp":14.7,"Min Humidity":41.6,"Max
