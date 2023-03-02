@@ -1,6 +1,6 @@
 # Backend for AQI-Heatwave-Forecaster
 
->Basic Flask application to make model prediction of AQI and Heatwaves for the Tier-2 cites in Telangana.
+>Basic Flask application to make model prediction of AQI and Heatwaves for the Tier-2 cites in Telangana with various endpoints as mentioned below.
 
 <br>
 
@@ -19,6 +19,10 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/aqi/getMonthlyAQIPredictions
+  
+* **Description** 
+
+  Returns the monthly AQI Predictions of the given city for the next 15 months
 
 * **Method:**
 
@@ -44,7 +48,21 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-      [{"Date":"2023-03-01","Predictions":86.5634307861},{"Date":"2023-04-01","Predictions":75.4241104126},{"Date":"2023-05-01","Predictions":70.9274902344},      {"Date":"2023-06-01","Predictions":69.1306838989},{"Date":"2023-07-01","Predictions":68.4158325195},{"Date":"2023-08-01","Predictions":68.1319503784},{"Date":"2023-09-01","Predictions":68.01927948},{"Date":"2023-10-01","Predictions":67.9745864868},{"Date":"2023-11-01","Predictions":67.9568557739},{"Date":"2023-12-01","Predictions":67.9498214722},{"Date":"2024-01-01","Predictions":67.9470291138},{"Date":"2024-02-01","Predictions":67.945930481},{"Date":"2024-03-01","Predictions":67.9454879761},{"Date":"2024-04-01","Predictions":67.9453125},{"Date":"2024-05-01","Predictions":67.9452514648}]
+      [{"Date":"2023-03-01","Predictions":86.5634307861},
+      {"Date":"2023-04-01","Predictions":75.4241104126},
+      {"Date":"2023-05-01","Predictions":70.9274902344},
+      {"Date":"2023-06-01","Predictions":69.1306838989},
+      {"Date":"2023-07-01","Predictions":68.4158325195},
+      {"Date":"2023-08-01","Predictions":68.1319503784},
+      {"Date":"2023-09-01","Predictions":68.01927948},
+      {"Date":"2023-10-01","Predictions":67.9745864868},
+      {"Date":"2023-11-01","Predictions":67.9568557739},
+      {"Date":"2023-12-01","Predictions":67.9498214722},
+      {"Date":"2024-01-01","Predictions":67.9470291138},
+      {"Date":"2024-02-01","Predictions":67.945930481},
+      {"Date":"2024-03-01","Predictions":67.9454879761},
+      {"Date":"2024-04-01","Predictions":67.9453125},
+      {"Date":"2024-05-01","Predictions":67.9452514648}]
 
     ```
 
@@ -53,6 +71,11 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/aqi/getDailyAQIPredictions
+  
+* **Description**
+
+  Returns the daily AQI predictions of the given city for the next 15 days
+
 
 * **Method:**
 
@@ -100,7 +123,11 @@ flask run
     
 * **URL**
 
-  https://aqi-heatwave-app.azurewebsites.net/api/aqi/getHistoryMonthlyAQI
+  https://aqi-heatwave-app.azurewebsites.net/api/aqi/getHistoryMonthlyAQI\
+ 
+* **Description**
+
+  Return the Monthly AQI historical Data which is used for model training
 
 * **Method:**
 
@@ -141,6 +168,10 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/aqi/getHistoryDailyAQI
+  
+* **Description**
+
+  Returns the Daily AQI historical Data which is used for model training
 
 * **Method:**
 
@@ -180,6 +211,11 @@ flask run
 * **URL**
 
  https://aqi-heatwave-app.azurewebsites.net/api/weather/getMonthlyWeatherPredictions
+ 
+* **Description**
+
+  Returns the Monthly Temperature predictions of the given city for the next 15 months
+ 
 
 * **Method:**
 
@@ -216,7 +252,8 @@ flask run
     0":10,"Date":"2024-01-01","Predictions":39.134475708},{"Unnamed:
     0":11,"Date":"2024-02-01","Predictions":39.1360359192},{"Unnamed:
     0":12,"Date":"2024-03-01","Predictions":39.136844635},{"Unnamed:
-    0":13,"Date":"2024-04-01","Predictions":39.137260437},{"Unnamed: 0":14,"Date":"2024-05-01","Predictions":39.1374778748}]
+    0":13,"Date":"2024-04-01","Predictions":39.137260437},{"Unnamed: 
+    0":14,"Date":"2024-05-01","Predictions":39.1374778748}]
 
     ```
     
@@ -225,6 +262,10 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/weather/getDailyWeatherPredictions
+  
+* **Description**
+
+  Returns the Daily Temperature predictions for the next 15 days
 
 * **Method:**
 
@@ -264,6 +305,11 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/weather/getHistoryMonthlyWeather
+  
+  
+ * **Description**
+
+  Return the Monthly Temperature historical Data which is used for model training
 
 * **Method:**
 
@@ -303,6 +349,11 @@ flask run
 * **URL**
 
   https://aqi-heatwave-app.azurewebsites.net/api/weather/getHistoryDailyWeather
+  
+  
+* **Description**
+
+  Return the Daily Temperature historical Data which is used for model training
 
 * **Method:**
 
