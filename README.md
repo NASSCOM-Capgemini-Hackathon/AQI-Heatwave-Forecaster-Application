@@ -12,6 +12,11 @@ set FLASK_ENV=development
 flask run
 ```
 
+## Sample request to our flask application
+
+![Screen Recording - 3 March 2023](https://user-images.githubusercontent.com/62760269/222524456-9a208c74-9ea3-4db7-bd3b-117a3bbe451d.gif)
+
+
 
 **API-Endpoints**
 ----
