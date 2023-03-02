@@ -239,22 +239,21 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [{"Unnamed: 0":0,"Date":"2023-03-01","Predictions":36.694229126},{"Unnamed:
-    0":1,"Date":"2023-04-01","Predictions":37.8973579407},{"Unnamed:
-    0":2,"Date":"2023-05-01","Predictions":38.501953125},{"Unnamed:
-    0":3,"Date":"2023-06-01","Predictions":38.810295105},{"Unnamed:
-    0":4,"Date":"2023-07-01","Predictions":38.9686889648},{"Unnamed:
-    0":5,"Date":"2023-08-01","Predictions":39.0503501892},{"Unnamed:
-    0":6,"Date":"2023-09-01","Predictions":39.0925292969},{"Unnamed:
-    0":7,"Date":"2023-10-01","Predictions":39.1143379211},{"Unnamed:
-    0":8,"Date":"2023-11-01","Predictions":39.125617981},{"Unnamed:
-    0":9,"Date":"2023-12-01","Predictions":39.1314544678},{"Unnamed:
-    0":10,"Date":"2024-01-01","Predictions":39.134475708},{"Unnamed:
-    0":11,"Date":"2024-02-01","Predictions":39.1360359192},{"Unnamed:
-    0":12,"Date":"2024-03-01","Predictions":39.136844635},{"Unnamed:
-    0":13,"Date":"2024-04-01","Predictions":39.137260437},{"Unnamed: 
-    0":14,"Date":"2024-05-01","Predictions":39.1374778748}]
-
+    [{"Unnamed: 0":0,"Date":"2023-03-01","Predictions":36.694229126},
+    {"Unnamed:0":1,"Date":"2023-04-01","Predictions":37.8973579407},
+    {"Unnamed:0":2,"Date":"2023-05-01","Predictions":38.501953125},
+    {"Unnamed:0":3,"Date":"2023-06-01","Predictions":38.810295105},
+    {"Unnamed:0":4,"Date":"2023-07-01","Predictions":38.9686889648},
+    {"Unnamed:0":5,"Date":"2023-08-01","Predictions":39.0503501892},
+    {"Unnamed:0":6,"Date":"2023-09-01","Predictions":39.0925292969},
+    {"Unnamed:0":7,"Date":"2023-10-01","Predictions":39.1143379211},
+    {"Unnamed:0":8,"Date":"2023-11-01","Predictions":39.125617981},
+    {"Unnamed:0":9,"Date":"2023-12-01","Predictions":39.1314544678},
+    {"Unnamed:0":10,"Date":"2024-01-01","Predictions":39.134475708},
+    {"Unnamed:0":11,"Date":"2024-02-01","Predictions":39.1360359192},
+    {"Unnamed:0":12,"Date":"2024-03-01","Predictions":39.136844635}
+    {"Unnamed:0":13,"Date":"2024-04-01","Predictions":39.137260437},
+    {"Unnamed:0":14,"Date":"2024-05-01","Predictions":39.1374778748}]
     ```
     
     
@@ -333,15 +332,68 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-      [{"Date":"2018-01","Max Temp":35.8,"Rain (mm)":0,"Min Temp":21,"Min Humidity":45.2,"Max Humidity":99.9,"Min Wind
-      Speed":4.6,"Max Wind Speed":24.7},{"Date":"2018-02","Max Temp":38.8,"Rain (mm)":36.3,"Min Temp":24.4,"Min
-      Humidity":59.3,"Max Humidity":100.0,"Min Wind Speed":6.1,"Max Wind Speed":48.3},{"Date":"2018-03","Max Temp":41.9,"Rain
-      (mm)":10,"Min Temp":27.6,"Min Humidity":70.9,"Max Humidity":100.0,"Min Wind Speed":3.9,"Max Wind
-      Speed":52.6},{"Date":"2018-04","Max Temp":44.3,"Rain (mm)":18.5,"Min Temp":31.9,"Min Humidity":49.1,"Max
-      Humidity":100.0,"Min Wind Speed":6,"Max Wind Speed":59},{"Date":"2018-05","Max Temp":45.1,"Rain (mm)":45.8,"Min
-      Temp":33.8,"Min Humidity":57.6,"Max Humidity":99.9,"Min Wind Speed":11,"Max Wind Speed":64.4},{"Date":"2018-06","Max
-      Temp":42.5,"Rain (mm)":128.8,"Min Temp":29.9,"Min Humidity":82.3,"Max Humidity":100.0,"Min Wind Speed":14.2,"Max Wind
-      Speed":57.6}]
+    [
+      {
+        "Date": "2018-01",
+        "Max Temp": 35.8,
+        "Rain (mm)": 0,
+        "Min Temp": 21,
+        "Min Humidity": 45.2,
+        "Max Humidity": 99.9,
+        "Min WindSpeed": 4.6,
+        "Max Wind Speed": 24.7
+      },
+      {
+        "Date": "2018-02",
+        "Max Temp": 38.8,
+        "Rain (mm)": 36.3,
+        "Min Temp": 24.4,
+        "MinHumidity": 59.3,
+        "Max Humidity": 100,
+        "Min Wind Speed": 6.1,
+        "Max Wind Speed": 48.3
+      },
+      {
+        "Date": "2018-03",
+        "Max Temp": 41.9,
+        "Rain(mm)": 10,
+        "Min Temp": 27.6,
+        "Min Humidity": 70.9,
+        "Max Humidity": 100,
+        "Min Wind Speed": 3.9,
+        "Max WindSpeed": 52.6
+      },
+      {
+        "Date": "2018-04",
+        "Max Temp": 44.3,
+        "Rain (mm)": 18.5,
+        "Min Temp": 31.9,
+        "Min Humidity": 49.1,
+        "MaxHumidity": 100,
+        "Min Wind Speed": 6,
+        "Max Wind Speed": 59
+      },
+      {
+        "Date": "2018-05",
+        "Max Temp": 45.1,
+        "Rain (mm)": 45.8,
+        "MinTemp": 33.8,
+        "Min Humidity": 57.6,
+        "Max Humidity": 99.9,
+        "Min Wind Speed": 11,
+        "Max Wind Speed": 64.4
+      },
+      {
+        "Date": "2018-06",
+        "MaxTemp": 42.5,
+        "Rain (mm)": 128.8,
+        "Min Temp": 29.9,
+        "Min Humidity": 82.3,
+        "Max Humidity": 100,
+        "Min Wind Speed": 14.2,
+        "Max Wind Speed": 57.6
+      }
+    ]
     ``` 
     
           
@@ -377,16 +429,68 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-      [{"DATE":"2018-01-01T00:00:00.000Z","Max Temp":33.5,"Rain (mm)":0,"Min Temp":16.8,"Min Humidity":41.8,"Max
-      Humidity":88.1,"Min Wind Speed":2,"Max Wind Speed":19.7},{"DATE":"2018-01-02T00:00:00.000Z","Max Temp":33.2,"Rain
-      (mm)":0,"Min Temp":16.9,"Min Humidity":38.8,"Max Humidity":85.0,"Min Wind Speed":3,"Max Wind
-      Speed":17.6},{"DATE":"2018-01-03T00:00:00.000Z","Max Temp":32.7,"Rain (mm)":0,"Min Temp":14.7,"Min Humidity":41.6,"Max
-      Humidity":85.1,"Min Wind Speed":1.2,"Max Wind Speed":18.8},{"DATE":"2018-01-04T00:00:00.000Z","Max Temp":32.2,"Rain
-      (mm)":0,"Min Temp":14.9,"Min Humidity":42.1,"Max Humidity":86.8,"Min Wind Speed":0.8,"Max Wind
-      Speed":16.4},{"DATE":"2018-01-05T00:00:00.000Z","Max Temp":32.4,"Rain (mm)":0,"Min Temp":14.3,"Min Humidity":40.9,"Max
-      Humidity":86.5,"Min Wind Speed":0,"Max Wind Speed":19.2},{"DATE":"2018-01-06T00:00:00.000Z","Max Temp":34.9,"Rain
-      (mm)":0,"Min Temp":16,"Min Humidity":38.2,"Max Humidity":83.4,"Min Wind Speed":3.4,"Max Wind
-      Speed":20.9}]
+      [
+    {
+      "DATE": "2018-01-01T00:00:00.000Z",
+      "Max Temp": 33.5,
+      "Rain (mm)": 0,
+      "Min Temp": 16.8,
+      "Min Humidity": 41.8,
+      "MaxHumidity": 88.1,
+      "Min Wind Speed": 2,
+      "MaxWindSpeed": 19.7
+    },
+    {
+      "DATE": "2018-01-02T00:00:00.000Z",
+      "Max Temp": 33.2,
+      "Rain(mm)": 0,
+      "Min Temp": 16.9,
+      "Min Humidity": 38.8,
+      "Max Humidity": 85,
+      "Min Wind Speed": 3,
+      "Max WindSpeed": 17.6
+    },
+    {
+      "DATE": "2018-01-03T00:00:00.000Z",
+      "Max Temp": 32.7,
+      "Rain (mm)": 0,
+      "Min Temp": 14.7,
+      "Min Humidity": 41.6,
+      "MaxHumidity": 85.1,
+      "Min Wind Speed": 1.2,
+      "Max Wind   Speed": 18.8
+    },
+    {
+      "DATE": "2018-01-04T00:00:00.000Z",
+      "Max Temp": 32.2,
+      "Rain (mm)": 0,
+      "Min Temp": 14.9,
+      "Min Humidity": 42.1,
+      "Max Humidity": 86.8,
+      "Min Wind Speed": 0.8,
+      "Max WindSpeed": 16.4
+    },
+    {
+      "DATE": "2018-01-05T00:00:00.000Z",
+      "Max Temp": 32.4,
+      "Rain (mm)": 0,
+      "Min Temp": 14.3,
+      "Min Humidity": 40.9,
+      "Max Humidity": 86.5,
+      "Min Wind Speed": 0,
+      "Max Wind Speed": 19.2
+    },
+    {
+      "DATE": "2018-01-06T00:00:00.000Z",
+      "Max Temp": 34.9,
+      "Rain(mm)": 0,
+      "Min Temp": 16,
+      "Min Humidity": 38.2,
+      "Max Humidity": 83.4,
+      "Min Wind Speed": 3.4,
+      "Max WindSpeed": 20.9
+    }
+    ]
     ``` 
     
     
