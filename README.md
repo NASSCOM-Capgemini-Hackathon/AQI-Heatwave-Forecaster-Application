@@ -210,7 +210,7 @@ flask run
         
 * **URL**
 
- https://aqi-heatwave-app.azurewebsites.net/api/weather/getMonthlyWeatherPredictions
+  https://aqi-heatwave-app.azurewebsites.net/api/weather/getMonthlyWeatherPredictions
  
 * **Description**
 
@@ -333,7 +333,7 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [{"Date":"2018-01","Max Temp":35.8,"Rain (mm)":0,"Min Temp":21,"Min Humidity":45.2,"Max Humidity":99.9,"Min Wind
+      [{"Date":"2018-01","Max Temp":35.8,"Rain (mm)":0,"Min Temp":21,"Min Humidity":45.2,"Max Humidity":99.9,"Min Wind
       Speed":4.6,"Max Wind Speed":24.7},{"Date":"2018-02","Max Temp":38.8,"Rain (mm)":36.3,"Min Temp":24.4,"Min
       Humidity":59.3,"Max Humidity":100.0,"Min Wind Speed":6.1,"Max Wind Speed":48.3},{"Date":"2018-03","Max Temp":41.9,"Rain
       (mm)":10,"Min Temp":27.6,"Min Humidity":70.9,"Max Humidity":100.0,"Min Wind Speed":3.9,"Max Wind
