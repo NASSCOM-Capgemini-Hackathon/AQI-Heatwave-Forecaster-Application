@@ -34,7 +34,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: echo "Set env variables"
+        run: echo $AWS_ACCESS_KEY_ID
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
