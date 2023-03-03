@@ -487,21 +487,83 @@ flask run
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [{"Unnamed: 0":0,"Date":"2023-03-01","Predictions":36.694229126},
-    {"Unnamed:0":1,"Date":"2023-04-01","Predictions":37.8973579407},
-    {"Unnamed:0":2,"Date":"2023-05-01","Predictions":38.501953125},
-    {"Unnamed:0":3,"Date":"2023-06-01","Predictions":38.810295105},
-    {"Unnamed:0":4,"Date":"2023-07-01","Predictions":38.9686889648},
-    {"Unnamed:0":5,"Date":"2023-08-01","Predictions":39.0503501892},
-    {"Unnamed:0":6,"Date":"2023-09-01","Predictions":39.0925292969},
-    {"Unnamed:0":7,"Date":"2023-10-01","Predictions":39.1143379211},
-    {"Unnamed:0":8,"Date":"2023-11-01","Predictions":39.125617981},
-    {"Unnamed:0":9,"Date":"2023-12-01","Predictions":39.1314544678},
-    {"Unnamed:0":10,"Date":"2024-01-01","Predictions":39.134475708},
-    {"Unnamed:0":11,"Date":"2024-02-01","Predictions":39.1360359192},
-    {"Unnamed:0":12,"Date":"2024-03-01","Predictions":39.136844635}
-    {"Unnamed:0":13,"Date":"2024-04-01","Predictions":39.137260437},
-    {"Unnamed:0":14,"Date":"2024-05-01","Predictions":39.1374778748}]
+    [
+      {
+        "Unnamed: 0": 0,
+        "Date": "2023-03-01",
+        "Predictions": 36.694229126
+      },
+      {
+        "Unnamed:0": 1,
+        "Date": "2023-04-01",
+        "Predictions": 37.8973579407
+      },
+      {
+        "Unnamed:0": 2,
+        "Date": "2023-05-01",
+        "Predictions": 38.501953125
+      },
+      {
+        "Unnamed:0": 3,
+        "Date": "2023-06-01",
+        "Predictions": 38.810295105
+      },
+      {
+        "Unnamed:0": 4,
+        "Date": "2023-07-01",
+        "Predictions": 38.9686889648
+      },
+      {
+        "Unnamed:0": 5,
+        "Date": "2023-08-01",
+        "Predictions": 39.0503501892
+      },
+      {
+        "Unnamed:0": 6,
+        "Date": "2023-09-01",
+        "Predictions": 39.0925292969
+      },
+      {
+        "Unnamed:0": 7,
+        "Date": "2023-10-01",
+        "Predictions": 39.1143379211
+      },
+      {
+        "Unnamed:0": 8,
+        "Date": "2023-11-01",
+        "Predictions": 39.125617981
+      },
+      {
+        "Unnamed:0": 9,
+        "Date": "2023-12-01",
+        "Predictions": 39.1314544678
+      },
+      {
+        "Unnamed:0": 10,
+        "Date": "2024-01-01",
+        "Predictions": 39.134475708
+      },
+      {
+        "Unnamed:0": 11,
+        "Date": "2024-02-01",
+        "Predictions": 39.1360359192
+      },
+      {
+        "Unnamed:0": 12,
+        "Date": "2024-03-01",
+        "Predictions": 39.136844635
+      },
+      {
+        "Unnamed:0": 13,
+        "Date": "2024-04-01",
+        "Predictions": 39.137260437
+      },
+      {
+        "Unnamed:0": 14,
+        "Date": "2024-05-01",
+        "Predictions": 39.1374778748
+      }
+    ]
     ```
     
     
