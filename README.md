@@ -1,16 +1,40 @@
-# Backend for AQI-Heatwave-Forecaster
+<div align="center">
+<h1> Backend for AQI-Heatwave-Forecaster
+</h1>
 
->Basic Flask application to make model prediction of AQI and Heatwaves for the Tier-2 cites in Telangana with various endpoints as mentioned below.
+<p>
+Basic Flask application to make model prediction of AQI and Heatwaves for the Tier-2 cites in Telangana with various endpoints as mentioned below.
+</p>
 
-<br>
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+![Flask](https://img.shields.io/static/v1?style=for-the-badge&message=Flask&color=000000&logo=Flask&logoColor=FFFFFF&label=)
+![Amazon AWS](https://img.shields.io/static/v1?style=for-the-badge&message=Amazon+AWS&color=232F3E&logo=Amazon+AWS&logoColor=FFFFFF&label=)
 
-## Run the Application
+<hr>
+</div>
+
+
+## Setting Up Application
+
+1. Create and Activate the virtual env
+```
+    python3 -m venv venv
+    venv\Scripts\activate.bat
+```
+
+2. Install the required python packages
+```
+    pip3 install -r requirements.txt
+```
+
+3. Run the Application
 
 ```
-set FLASK_APP=run.py
+set FLASK_APP=index.py
 set FLASK_ENV=development
 flask run
 ```
+
 
 ## Sample request to our flask application
 
