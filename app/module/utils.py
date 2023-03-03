@@ -56,7 +56,6 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
 
     df, msg = get_csv_from_aws(filename)
     if len(df) == 0:
-        print(os.environ.get("AWS_ACCESS_KEY_ID"))
         return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
     json_data = df.to_json(orient='records')
     return (json_data, 200)
