@@ -1,7 +1,7 @@
 import pandas as pd
 import s3fs
 import os
-from datetime import date, timedelta , datetime
+from datetime import date, timedelta, datetime
 from dotenv import load_dotenv
 
 load_dotenv('backend\.env')
@@ -15,12 +15,11 @@ def prepare_history_data(city, forecast_type, parameter_type):
         return ({"Error": "Invalid City Input Given"}, 500)
 
     filename = 'data/{}/{}/{}-{}.xlsx'.format(parameter_type,
-                                      forecast_type, parameter_type, forecast_type)
+                                              forecast_type, parameter_type, forecast_type)
     print(filename)
-    df,msg = get_xlsx_from_aws(filename, city)
+    df, msg = get_xlsx_from_aws(filename, city)
     if len(df) == 0:
         return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
-
 
     if parameter_type == "weather":
         df.rename(columns={'Max Temp (°C)': 'Max Temp', 'Min Temp (°C)': 'Min Temp',
@@ -46,16 +45,16 @@ def prepare_data_for_api(city, forecast_type, parameter_type):
     today = date.today()
     if city not in ALLOWED_CITIES:
         return ({"Error": "Invalid City Input Given"}, 500)
-    
+
     if forecast_type == "monthly":
         filename = '{}/{}/{}/{}-{}-{}.csv'.format(forecast_type,
-                                           parameter_type, city, parameter_type, str(datetime.now().strftime('%B')) ,str(datetime.now().strftime('%Y')))
+                                                  parameter_type, city, parameter_type, str(datetime.now().strftime('%B')), str(datetime.now().strftime('%Y')))
     else:
         filename = '{}/{}/{}/{}-{}.csv'.format(forecast_type,
-                                           parameter_type, city, parameter_type, today)
+                                               parameter_type, city, parameter_type, today)
     print(filename)
 
-    df,msg = get_csv_from_aws(filename)
+    df, msg = get_csv_from_aws(filename)
     if len(df) == 0:
         return ({"Error": "Data doesn't exists ,msg-"+str(msg)}, 500)
     json_data = df.to_json(orient='records')
@@ -71,8 +70,8 @@ def get_csv_from_aws(filename):
         pandas data frame
     """
     global BUCKET_NAME
-    fs = s3fs.S3FileSystem(key='AKIAQOY2QI5NU7SFAHPH',
-                           secret='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')
+    fs = s3fs.S3FileSystem(key=os.environ.get("AWS_ACCESS_KEY_ID"),
+                           secret=os.environ.get("AWS_SECRET_ACCESS_KEY"))
     msg = ""
 
     try:
@@ -84,7 +83,7 @@ def get_csv_from_aws(filename):
         msg = e
         df = pd.DataFrame()
 
-    return df,msg
+    return df, msg
 
 
 def get_xlsx_from_aws(filename, sheet_name):
@@ -96,10 +95,9 @@ def get_xlsx_from_aws(filename, sheet_name):
         pandas data frame
     """
     global BUCKET_NAME
-    fs = s3fs.S3FileSystem(key='AKIAQOY2QI5NU7SFAHPH',
-                           secret='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')
+    fs = s3fs.S3FileSystem(key=os.environ.get("AWS_ACCESS_KEY_ID"),
+                           secret=os.environ.get("AWS_SECRET_ACCESS_KEY"))
     msg = ""
-
 
     try:
         with fs.open(f'{BUCKET_NAME}/{filename}') as f:
@@ -111,4 +109,4 @@ def get_xlsx_from_aws(filename, sheet_name):
         df = pd.DataFrame()
 
     # print(df.tail())
-    return df,msg
+    return df, msg
