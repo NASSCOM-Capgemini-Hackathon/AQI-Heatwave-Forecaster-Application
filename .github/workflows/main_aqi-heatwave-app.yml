@@ -35,8 +35,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          set AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
-          set AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+          set AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+          set AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
           echo $AWS_ACCESS_KEY_ID
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
